@@ -5,7 +5,11 @@ var dataset = require('./dataset.json');
   greater than 100000
   assign the resulting new array to `hundredThousandairs`
 */
-var hundredThousandairs = null;
+var hundredThousandairs = dataset.bankBalances.filter(function(acct){
+  if (acct.amount > 100000){
+    return acct;
+  }
+});
 
 /*
   DO NOT MUTATE DATA.
