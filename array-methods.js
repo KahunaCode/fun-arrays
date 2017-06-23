@@ -30,12 +30,15 @@ var hundredThousandairs = dataset.bankBalances.filter(function(acct){
 */
 
 function rounder(acct){
-  acct["rounded"] = Math.round(acct["amount"]);
-  return acct;
+  return {
+    amount: acct.amount,
+    state: acct.state,
+    rounded: Math.round(acct["amount"])
+  };
 }
 
 var datasetWithRoundedDollar = dataset.bankBalances.map( rounder );
-console.log(datasetWithRoundedDollar);
+//console.log(datasetWithRoundedDollar);
 
 /*
   DO NOT MUTATE DATA.
@@ -60,7 +63,20 @@ console.log(datasetWithRoundedDollar);
     }
   assign the resulting new array to `roundedDime`
 */
-var datasetWithRoundedDime = null;
+
+function roundDime(acct){
+  return {
+    amount : acct.amount,
+    state : acct.state,
+    roundedDime : Math.round(10*acct["amount"])/10
+  };
+
+}
+
+var datasetWithRoundedDime = dataset.bankBalances.map( roundDime );
+
+//console.log(datasetWithRoundedDime);
+
 
 // set sumOfBankBalances to be the sum of all value held at `amount` for each bank object
 var sumOfBankBalances = null;
