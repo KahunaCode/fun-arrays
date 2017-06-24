@@ -83,7 +83,7 @@ var datasetWithRoundedDime = dataset.bankBalances.map( roundDime );
 
 var sumOfBankBalances = dataset.bankBalances.reduce( (totalSum, curr) => {
   console.log(totalSum);
-  return Math.round(100*(totalSum + Number(curr.amount))/100);
+  return Math.round(100*totalSum)/100 + Math.round(100*Number(curr.amount))/100;
 }, 0);
 
 
